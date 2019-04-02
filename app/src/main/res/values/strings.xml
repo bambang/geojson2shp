@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GeoJSON to SHP</string>
+    <string name="pilihfile">Pilih file GeoJSON / SHP</string>
+    <string name="prosesfile">Ubah menjadi SHP / GeoJSON</string>
+    <string name="chooser_title">Select input file</string>
+    <string name="selectedInput">Input File: </string>
+    <string name="outputFile">Output File: </string>
+    <string name="exportError">Export failed. Please try again and if the problems still exists please do report a problem.</string>
+    <string name="exporting">Exporting</string>
+    <string name="txt_processing_sum">The data is being processed…</string>
+    <string name="geojsonExtensionError">Selected file should have extension .geojson</string>
+</resources>

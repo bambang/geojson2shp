@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pilihfile"
+            tools:text="@string/pilihfile" />
+
+        <TextView
+            android:id="@+id/txtInput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15.0dip"
+            android:layout_marginBottom="15.0dip"
+            android:maxLines="5"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prosesfile"
+            tools:text="@string/prosesfile" />
+
+        <TextView
+            android:id="@+id/txtOutput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:layout_marginTop="15.0dip"
+            android:layout_marginBottom="15.0dip"
+            />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
