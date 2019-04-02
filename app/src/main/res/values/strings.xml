@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GeoJSON to SHP</string>
-    <string name="pilihfile">Pilih file GeoJSON / SHP</string>
-    <string name="prosesfile">Ubah menjadi SHP / GeoJSON</string>
+    <string name="pilihfile">Select GeoJSON / SHP file</string>
+    <string name="prosesfile">Convert to SHP / GeoJSON</string>
     <string name="chooser_title">Select input file</string>
     <string name="selectedInput">Input File: </string>
     <string name="outputFile">Output File: </string>
