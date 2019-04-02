@@ -9,3 +9,6 @@ A simple Android app to convert GeoJSON to SHP and vice versa using GDAL.
 ![Image](images/shp_to_geojson.jpg)
 ![Image](images/shp_to_geojson_result.jpg)
 
+## Dependencies
+
+[1] GDAL4Adroid library from [https://github.com/paamand/GDAL4Android](https://github.com/paamand/GDAL4Android)
