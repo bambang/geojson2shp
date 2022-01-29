@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">GeoJSON to SHP</string>
     <string name="pilihfile">Select GeoJSON / SHP file</string>
+    <string name="label_select_tab_file">Select TAB file</string>
     <string name="prosesfile">Convert to SHP / GeoJSON</string>
+    <string name="txt_convert_tab_2_shp">Convert TAB to SHP</string>
+    <string name="txt_convert_tab_2_kml">Convert TAB to KML</string>
     <string name="chooser_title">Select input file</string>
     <string name="selectedInput">Input File: </string>
     <string name="outputFile">Output File: </string>
@@ -9,4 +12,6 @@
     <string name="exporting">Exporting</string>
     <string name="txt_processing_sum">The data is being processed…</string>
     <string name="geojsonExtensionError">Selected file should have extension .geojson</string>
+    <string name="tip_select_tab_file_first">select tab file first</string>
+    <string name="must_select_tab_file">please select tab file</string>
 </resources>

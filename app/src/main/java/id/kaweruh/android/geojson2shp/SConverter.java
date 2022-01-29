@@ -20,6 +20,121 @@ import java.io.File;
 import java.lang.String;
 
 public final class SConverter {
+
+
+    private static final String TAG = "SpatialConv";
+
+    /**
+     * should exist demo.tab, demo.map, demo.dat, demo.id
+     *
+     * Ref: https://gdal.org/gdal.pdf
+     * Ref: https://trac.osgeo.org/gdal/wiki/BuildingForAndroid
+     * Ref: https://github.com/wshunli/gdal-android
+     * Ref: https://github.com/OSGeo/gdal
+     *
+     * @return ...
+     */
+    public static String convertTab2Shp(String tabFilePath) {
+        Log.i(TAG, "convertTab2Shp()");
+
+        String strInputFile = tabFilePath;
+        String strOutputFile = "";
+
+        Log.i(TAG, "input file: " + strInputFile);
+
+        ogr.RegisterAll();
+
+        gdal.SetConfigOption("GDAL_FILENAME_IS_UTF8", "YES");
+
+        // chinese support
+        gdal.SetConfigOption("SHAPE_ENCODING", "");
+
+        int lastIndexOf = strInputFile.lastIndexOf('.');
+        if (lastIndexOf == -1) {
+            strOutputFile = strInputFile + ".shp";
+        } else {
+            strOutputFile = strInputFile.substring(0, lastIndexOf) + ".shp";
+        }
+        //open data
+        Log.d(TAG, "input file: " + strInputFile);
+        Log.d(TAG, "output file: " + strOutputFile);
+
+        DataSource ds = ogr.Open(strInputFile, 0);
+        if (ds == null) {
+            Log.e(TAG, "Failed opening TAB file.");
+            return "";
+        }
+        Log.d(TAG, "TAB file opened succesfully.");
+        Driver dv = ogr.GetDriverByName("ESRI Shapefile");
+        if (dv == null) {
+            Log.e(TAG, "ESRI Shapefile driver loading error.");
+            return "";
+        }
+        Log.d(TAG, "Shapefile driver loaded succefully.");
+        dv.CopyDataSource(ds, strOutputFile);
+        Log.d(TAG, "TAB file converted to SHP succefully.");
+
+
+        return strOutputFile;
+    }
+
+
+    /**
+     * should exist demo.tab, demo.map, demo.dat, demo.id
+     *
+     * Ref: https://gdal.org/gdal.pdf
+     * Ref: https://trac.osgeo.org/gdal/wiki/BuildingForAndroid
+     * Ref: https://github.com/wshunli/gdal-android
+     * Ref: https://github.com/OSGeo/gdal
+     *
+     * @return ...
+     */
+    public static String convertTab2Kml(String tabFilePath) {
+        Log.i(TAG, "convertTab2Kml()");
+
+        String strInputFile = tabFilePath;
+        String strOutputFile = "";
+
+        Log.i(TAG, "input file: " + strInputFile);
+
+        ogr.RegisterAll();
+
+        gdal.SetConfigOption("GDAL_FILENAME_IS_UTF8", "YES");
+
+        // chinese support
+        gdal.SetConfigOption("SHAPE_ENCODING", "");
+
+        int lastIndexOf = strInputFile.lastIndexOf('.');
+        if (lastIndexOf == -1) {
+            strOutputFile = strInputFile + ".kml";
+        } else {
+            strOutputFile = strInputFile.substring(0, lastIndexOf) + ".kml";
+        }
+        //open data
+        Log.d(TAG, "input file: " + strInputFile);
+        Log.d(TAG, "output file: " + strOutputFile);
+
+        DataSource ds = ogr.Open(strInputFile, 0);
+        if (ds == null) {
+            Log.e(TAG, "Failed opening TAB file.");
+            return "";
+        }
+        Log.d(TAG, "TAB file opened succesfully.");
+        Driver dv = ogr.GetDriverByName("KML");
+        if (dv == null) {
+            Log.e(TAG, "KML driver loading error.");
+            return "";
+        }
+        Log.d(TAG, "KML driver loaded succefully.");
+        dv.CopyDataSource(ds, strOutputFile);
+        Log.d(TAG, "TAB file converted to KML succefully.");
+
+
+        return strOutputFile;
+    }
+
+
+
     // convert GeoJSON file to SHP
     public static String GeoJSON2SHP (String strInputFile) {
         String strOutputFile = "";
