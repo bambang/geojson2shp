@@ -22,6 +22,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.database.sqlite.SQLiteCursorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -112,10 +113,51 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.btnSelectTabFile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent();
+                intent.setType("*/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, 0x90);// Activity is started with requestCode 2
+            }
+        });
+
+        findViewById(R.id.btnConvert2Shp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(finputname)) {
+                    Toast.makeText(getApplicationContext(), getContext().getString(R.string.tip_select_tab_file_first), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!finputname.toLowerCase().endsWith(".tab")) {
+                    Toast.makeText(getApplicationContext(), getContext().getString(R.string.must_select_tab_file), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                SConverter.convertTab2Shp(finputname);
+            }
+        });
+        findViewById(R.id.btnConvert2Kml).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(finputname)) {
+                    Toast.makeText(getApplicationContext(), getContext().getString(R.string.tip_select_tab_file_first), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!finputname.toLowerCase().endsWith(".tab")) {
+                    Toast.makeText(getApplicationContext(), getContext().getString(R.string.must_select_tab_file), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                SConverter.convertTab2Kml(finputname);
+            }
+        });
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if ((intent != null) && ( i == 1359 )) {
+
+        if ((intent != null) && ( i == 1359 || i == 0x90)) {
             Uri resultUri = intent.getData();
             try {
                 finputname = getFilePath(this, resultUri);
