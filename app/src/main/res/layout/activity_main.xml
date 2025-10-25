@@ -24,6 +24,13 @@
             android:text="@string/pilihfile"
             tools:text="@string/pilihfile" />
 
+        <Button
+            android:id="@+id/btnSelectTabFile"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_select_tab_file"
+            tools:text="@string/label_select_tab_file" />
+
         <TextView
             android:id="@+id/txtInput"
             android:layout_width="fill_parent"
@@ -39,6 +46,20 @@
             android:layout_height="wrap_content"
             android:text="@string/prosesfile"
             tools:text="@string/prosesfile" />
+
+        <Button
+            android:id="@+id/btnConvert2Shp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_convert_tab_2_shp"
+            tools:text="@string/txt_convert_tab_2_shp" />
+
+        <Button
+            android:id="@+id/btnConvert2Kml"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_convert_tab_2_kml"
+            tools:text="@string/txt_convert_tab_2_kml" />
 
         <TextView
             android:id="@+id/txtOutput"
